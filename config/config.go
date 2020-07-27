@@ -17,6 +17,7 @@ func LoadConfiguration() Config {
 	f, err := os.Open("./secrets/config.json")
 	if err != nil {
 		logrus.Error("Could not find config file or no file specified")
+		logrus.Error(err)
 		os.Exit(1)
 	}
 	defer f.Close()

@@ -50,6 +50,24 @@ var CodeKeywords = []string{
 	"rigidbody",
 	"function",
 	"extends",
+	"GetComponent",
+	"Find",
+	"Profiling",
+	"BeginSample",
+	"EndSample",
+	"instanceof",
+	"Debug.Log",
+	"new ",
+	"foreach(",
+	"while",
+	"finally",
+	"Dictionary",
+	"void LateUpdate()",
+	"void FixedUpdate()",
+	"GameObject.Find(",
+	"SecuritySafeCritical",
+	"WrapperlessIcall",
+	
 }
 
 func CSOperationBreakdown(cl changelog.ChangeLog)  {
