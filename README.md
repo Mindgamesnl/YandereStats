@@ -10,7 +10,7 @@ Main output gets rendered on [this page. Most data is in the database that gets 
  - [File changes and introductions](docs/file_change_graph.md)
  - [Changelog analysis](docs/changelog_keyword_assurances.md)
  - [File length breakdown](docs/file_length_breakdown.md)
-
+ - [C# keywrods/function analysis](docs/code_keyword_occurrences.md)
 ### (Small notes)
  - This is the result of a sleepdeprived yet curious allgnither and is still a work in progress, want to write more systems to automatically analyze data than just that one graph.
  - Want to know more? I can't publish the dataset itself for ovbius reasons but feel free to make a Issue on github or message me on Discord if you have any ideas/suggestions.

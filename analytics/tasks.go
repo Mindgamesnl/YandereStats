@@ -18,4 +18,7 @@ var AnalyticalTasks = []func(changelog.ChangeLog){
 	// check how fucking obese his code is
 	CountFileSize,
 
+	// code analysis
+	CSOperationBreakdown,
+
 }

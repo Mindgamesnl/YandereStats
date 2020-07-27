@@ -4,6 +4,7 @@ import (
 	"github.com/Mindgamesnl/YandereStats/analytics"
 	"github.com/Mindgamesnl/YandereStats/changelog"
 	"github.com/Mindgamesnl/YandereStats/config"
+	"github.com/Mindgamesnl/YandereStats/database"
 	"github.com/Mindgamesnl/YandereStats/initializer"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/sirupsen/logrus"
@@ -19,7 +20,7 @@ func main() {
 	ChangeLog = initializer.InitializeGameVersions()
 	ChangeLog = initializer.MergeDataSets(UpdateRepository, ChangeLog)
 
-	// database.SaveToSql(ChangeLog)
+	database.SaveToSql(ChangeLog)
 
 	// analytics
 	logrus.Info("Starting analytical tasks")
