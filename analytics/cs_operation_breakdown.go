@@ -27,6 +27,15 @@ var CodeKeywords = []string{
 	"SendMessageUpwards",
 	"BroadcastMessage",
 	"OnGUI",
+	"final",
+	"[",
+	"null",
+	"red",
+	"green",
+	"yes",
+	"no",
+	"on",
+	"off",
 }
 
 func CSOperationBreakdown(cl changelog.ChangeLog)  {
