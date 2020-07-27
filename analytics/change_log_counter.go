@@ -19,6 +19,11 @@ var Keywords = []string{
 	"Kill",
 	"Crash",
 	"Update",
+	"I",
+	"Reddit",
+	"Leak",
+	"Hacks",
+	"Mod",
 }
 
 func CountChangeLogEntries(cl changelog.ChangeLog)  {

@@ -4,7 +4,9 @@
 
 | CHANGELOG KEYWORD | OCCURRENCES | FIRST MENTIONED |
 |-------------------|-------------|-----------------|
+| i                 |        2340 | ys2014 .00.04   |
 | added             |         481 | ys2014 .00.04   |
+| mod               |         209 | ys2014.10.15    |
 | update            |         137 | ys2014.09.01    |
 | removed           |          69 | ys2014.10.15    |
 | implemented       |          57 | ys2014 .00.04   |
