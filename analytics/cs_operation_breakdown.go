@@ -71,7 +71,7 @@ func CSOperationBreakdown(cl changelog.ChangeLog)  {
 	for i := range list {
 		pair := list[i]
 
-		rows = append(rows, []string{"`" + pair.Key + "`", strconv.FormatInt(int64(pair.Value), 10), firstChanges[pair.Key]})
+		rows = append(rows, []string{"```c# " + pair.Key + "```", strconv.FormatInt(int64(pair.Value), 10), firstChanges[pair.Key]})
 	}
 
 	tableString := &strings.Builder{}
