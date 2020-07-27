@@ -44,20 +44,6 @@ func InitializeGit() *git.Repository {
 	logrus.Info("ValIDated repo, contains " + strconv.Itoa(count) + " updates.")
 
 	return r
-	/*
-	// ... retrieves the branch pointed by HEAD
-	ref, _ := r.Head()
-
-
-	// ... retrieves the commit history
-	cIter, _ := r.Log(&git.LogOptions{From: ref.Hash()})
-
-	// ... just iterates over the commits, printing it
-	_ = cIter.ForEach(func(c *object.Commit) error {
-		fmt.Println(c)
-		return nil
-	})
-	*/
 }
 
 func exists(path string) (bool) {
