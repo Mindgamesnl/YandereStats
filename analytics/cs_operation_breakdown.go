@@ -19,7 +19,13 @@ var CodeKeywords = []string{
 	"return",
 	"throw",
 	"catch",
-	"onUpdate",
+	"void Update()",
+	"void Ping()",
+	"void Start()",
+	"AddListener",
+	"Invoke",
+	"MonoBehaviour",
+	"Serializable",
 	"FindObjectOfType",
 	"GetComponentsInChildren",
 	"FindObjectsOfTypeAll",
@@ -42,6 +48,8 @@ var CodeKeywords = []string{
 	"== true",
 	"Insane",
 	"rigidbody",
+	"function",
+	"extends",
 }
 
 func CSOperationBreakdown(cl changelog.ChangeLog)  {
@@ -56,7 +64,7 @@ func CSOperationBreakdown(cl changelog.ChangeLog)  {
 			line := lineUpdate.Code
 			for i2 := range CodeKeywords {
 				keyword := strings.ToLower(CodeKeywords[i2])
-				if strings.Contains(line, keyword) {
+				if strings.Contains(line, keyword) || strings.Contains(lineUpdate.Code, CodeKeywords[i2]) {
 					if lineUpdate.Action == "ADD" {
 						values[keyword]++
 					} else {
