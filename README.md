@@ -5,6 +5,7 @@ The pre-generated juicy bits so far
  - [Changelog analysis](docs/changelog_keyword_occurrences.md)
  - [File length breakdown](docs/file_length_breakdown.md)
  - [C# keywords/function analysis](docs/code_keyword_occurrences.md)
+ - [Crawler Timings](docs/time_breakdown.md)
  
 
 # What is Yandere Stats

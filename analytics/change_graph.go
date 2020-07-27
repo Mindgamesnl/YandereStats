@@ -5,13 +5,9 @@ import (
 	"github.com/go-echarts/go-echarts/charts"
 	"github.com/sirupsen/logrus"
 	"log"
-	"math/rand"
 	"os"
 	"path"
-	"time"
 )
-
-var seed = rand.NewSource(time.Now().UnixNano())
 
 func GenerateGraphTask(cl changelog.ChangeLog) {
 	logrus.Info("Making main graphs, fun!")
@@ -50,7 +46,7 @@ func GenerateGraphTask(cl changelog.ChangeLog) {
 	if err != nil {
 		log.Println(err)
 	}
-	page.Render(f)
+	_ = page.Render(f)
 }
 
 func getRenderPath(f string) string {

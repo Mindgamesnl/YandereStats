@@ -6,21 +6,26 @@ import (
 	"github.com/Mindgamesnl/YandereStats/config"
 	"github.com/Mindgamesnl/YandereStats/database"
 	"github.com/Mindgamesnl/YandereStats/initializer"
+	"github.com/Mindgamesnl/YandereStats/utils"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/src-d/go-git.v4"
 )
 
-var UpdateRepository *git.Repository
-var ChangeLog changelog.ChangeLog
+var (
+	UpdateRepository *git.Repository
+	ChangeLog        changelog.ChangeLog
+)
 
 func main() {
+	total := utils.NewStopwatch("Data Collection - Combined Total")
 	config.LoadConfiguration()
 	UpdateRepository = initializer.InitializeGit()
 	ChangeLog = initializer.InitializeGameVersions()
 	ChangeLog = initializer.MergeDataSets(UpdateRepository, ChangeLog)
 
 	database.SaveToSql(ChangeLog)
+	total.Stop()
 
 	// analytics
 	logrus.Info("Starting analytical tasks")
@@ -30,4 +35,6 @@ func main() {
 		bar.Increment()
 	}
 	bar.Finish()
+
+	analytics.GenerateStopwatchBreakdown()
 }

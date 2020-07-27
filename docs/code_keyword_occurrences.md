@@ -39,10 +39,10 @@
 | throw              |          11 | ys2015.02.15 |
 | void fixedupdate() |           7 | ys2017.07.09 |
 | function           |           7 | ys2017.07.09 |
-| ongui              |           6 | ys2017.07.09 |
 | catch              |           6 | ys2015.12.01 |
-| invoke             |           5 | ys2017.07.09 |
+| ongui              |           6 | ys2017.07.09 |
 | switch             |           5 | ys2019.01.01 |
+| invoke             |           5 | ys2017.07.09 |
 | getcomponents      |           4 | ys2016.02.21 |
-| final              |           2 | ys2017.10.18 |
 | finally            |           2 | ys2017.10.18 |
+| final              |           2 | ys2017.10.18 |

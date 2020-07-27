@@ -2,6 +2,7 @@ package initializer
 
 import (
 	"github.com/Mindgamesnl/YandereStats/config"
+	"github.com/Mindgamesnl/YandereStats/utils"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
@@ -12,7 +13,8 @@ import (
 const repoDir = "./secrets/yandere-git/"
 
 func InitializeGit() *git.Repository {
-	logrus.Info("Starting repo...")
+	gitTimer := utils.NewStopwatch("Decompiled History - Combined Total")
+	repoTimer := utils.NewStopwatch("Decompiled History - Opening Repo")
 	var r *git.Repository
 
 	if exists(repoDir) {
@@ -31,7 +33,8 @@ func InitializeGit() *git.Repository {
 		r = cloned
 	}
 
-	logrus.Info("Loaded repository, valIDating")
+	repoTimer.Stop()
+	headTimer := utils.NewStopwatch("Decompiled History - Fetching HEAD")
 
 	ref, _ := r.Head()
 	cIter, _ := r.Log(&git.LogOptions{From: ref.Hash()})
@@ -42,11 +45,12 @@ func InitializeGit() *git.Repository {
 	})
 
 	logrus.Info("ValIDated repo, contains " + strconv.Itoa(count) + " updates.")
-
+	headTimer.Stop()
+	gitTimer.Stop()
 	return r
 }
 
-func exists(path string) (bool) {
+func exists(path string) bool {
 	_, err := os.Stat(path)
 	if err == nil { return true }
 	if os.IsNotExist(err) { return false }

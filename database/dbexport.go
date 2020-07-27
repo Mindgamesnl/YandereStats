@@ -3,6 +3,7 @@ package database
 import (
 	"github.com/Mindgamesnl/YandereStats/changelog"
 	"github.com/Mindgamesnl/YandereStats/git"
+	"github.com/Mindgamesnl/YandereStats/utils"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
@@ -10,6 +11,7 @@ import (
 )
 
 func SaveToSql(cl changelog.ChangeLog)  {
+	mysql := utils.NewStopwatch("Data Collection - MySQL Export")
 	bar := pb.StartNew(len(cl.Revisions))
 	logrus.Info("Creating database")
 	db, err := gorm.Open("sqlite3", "secrets/database.db")
@@ -53,4 +55,5 @@ func SaveToSql(cl changelog.ChangeLog)  {
 		bar.Increment()
 	}
 	bar.Finish()
+	mysql.Stop()
 }

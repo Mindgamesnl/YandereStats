@@ -3,6 +3,7 @@ package initializer
 import (
 	"github.com/Mindgamesnl/YandereStats/changelog"
 	"github.com/Mindgamesnl/YandereStats/git"
+	"github.com/Mindgamesnl/YandereStats/utils"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/sirupsen/logrus"
 	"log"
@@ -13,6 +14,7 @@ import (
 )
 
 func InitializeGameVersions() changelog.ChangeLog {
+	downloadTimer := utils.NewStopwatch("Data Collection - Changelog Download")
 	logrus.Info("Loading and parsing game versions")
 	start := time.Now()
 
@@ -67,6 +69,7 @@ func InitializeGameVersions() changelog.ChangeLog {
 	logrus.Info("Scraped " + strconv.FormatInt(int64(len(changeLog)), 10) + " updates from the wiki")
 	elapsed := time.Since(start)
 	logrus.Info("Scraping took ", elapsed)
+	downloadTimer.Stop()
 	return changelog.ChangeLog{Revisions: changeLog}
 }
 

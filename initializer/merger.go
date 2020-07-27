@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/Mindgamesnl/YandereStats/changelog"
 	git2 "github.com/Mindgamesnl/YandereStats/git"
+	"github.com/Mindgamesnl/YandereStats/utils"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/src-d/go-git.v4"
@@ -14,12 +15,18 @@ import (
 	"strings"
 )
 
+var (
+	TotalLinesAdded = 0
+	TotalLinesRemoved = 0
+)
+
 func MergeDataSets(repo *git.Repository, cl changelog.ChangeLog) changelog.ChangeLog {
+	mergeTimer := utils.NewStopwatch("Data Collection - Git+Changelog Merging")
 	bar := pb.StartNew(len(cl.Revisions))
 	logrus.Info("Merging changelog and repository, this may take a while")
 
 	var failedMatches = 0
-	var successfullMatches = 0
+	var successfulMatches = 0
 
 	for i := range cl.Revisions {
 		rev := &cl.Revisions[i]
@@ -28,7 +35,7 @@ func MergeDataSets(repo *git.Repository, cl changelog.ChangeLog) changelog.Chang
 		if !valID {
 			failedMatches++
 		} else {
-			successfullMatches++
+			successfulMatches++
 			cl.Revisions[i].CommitData = commit
 		}
 		bar.Increment()
@@ -38,7 +45,8 @@ func MergeDataSets(repo *git.Repository, cl changelog.ChangeLog) changelog.Chang
 	_ = ioutil.WriteFile("secrets/merged.json", file, 0644)
 
 	bar.Finish()
-	logrus.Info("Finished commit matching. Failed for " + strconv.FormatInt(int64(failedMatches), 10) + " commits and was successful for " + strconv.FormatInt(int64(successfullMatches), 10))
+	logrus.Info("Finished commit matching. Failed for " + strconv.FormatInt(int64(failedMatches), 10) + " commits and was successful for " + strconv.FormatInt(int64(successfulMatches), 10))
+	mergeTimer.Stop()
 	return cl
 }
 
@@ -52,9 +60,9 @@ func findCommitByName(repo *git.Repository, name string, log *changelog.ChangeLo
 
 	var looper convert
 
-	looper = func(c *object.Commit) {
-		if c != nil {
-			message := strings.ReplaceAll(c.Message, "\n", "")
+	looper = func(currentCommit *object.Commit) {
+		if currentCommit != nil {
+			message := strings.ReplaceAll(currentCommit.Message, "\n", "")
 			if message == name {
 
 				log.UpdateID++
@@ -66,9 +74,9 @@ func findCommitByName(repo *git.Repository, name string, log *changelog.ChangeLo
 					rev.Note[i].UpdateID = ID
 				}
 
-				parentCommit, _ := c.Parents().Next()
+				parentCommit, _ := currentCommit.Parents().Next()
 
-				patchSet, _ := c.Patch(parentCommit)
+				patchSet, _ := currentCommit.Patch(parentCommit)
 				filePatches := patchSet.FilePatches()
 				out.AddedLines = []git2.LineUpdate{}
 				out.RemovedLines = []git2.LineUpdate{}
@@ -78,17 +86,30 @@ func findCommitByName(repo *git.Repository, name string, log *changelog.ChangeLo
 					chunks := filePatch.Chunks()
 					for chunkIterator := range chunks {
 						fileChunk := chunks[chunkIterator]
+
 						if fileChunk.Type() == diff.Add {
-							out.AddedLines = append(out.AddedLines, git2.LineUpdate{Code: fileChunk.Content(), UpdateID: ID, Action: "ADD"})
+							// he wrote a line of code, im proud
+							out.AddedLines = append(out.AddedLines, git2.LineUpdate{
+								Code: fileChunk.Content(),
+								UpdateID: ID,
+								Action: "ADD",
+							})
 						} else if fileChunk.Type() == diff.Delete {
-							out.RemovedLines = append(out.RemovedLines, git2.LineUpdate{Code: fileChunk.Content(), UpdateID: ID, Action: "DELETE"})
+							// yeetus deletus
+							out.RemovedLines = append(out.RemovedLines, git2.LineUpdate{
+								Code: fileChunk.Content(),
+								UpdateID: ID,
+								Action: "DELETE",
+							})
 						}
 					}
 				}
 
-				stats, _ := c.Stats()
+				stats, _ := currentCommit.Stats()
 				for i := range stats {
 					stat := stats[i]
+					TotalLinesAdded += stat.Addition
+					TotalLinesRemoved += stat.Deletion
 					file := git2.ChangedFile{FileName: stat.Name, AddedLines: stat.Addition, RemovedLines: stat.Deletion, UpdateId: ID}
 					out.Changes = append(out.Changes, file)
 				}
