@@ -4,3 +4,7 @@ Yandere fetch is a utility that scans code differences between every release and
 This project does not contain any of YS' code, nor is it 100% accurate (file changes in files that haven't been tracked prior to that release count as a 100% net gain in total lines, since the whole file is being added to the system in that release).
 
 Main output gets rendered on [this page](docs/index.html). Most data is in the database that gets created by this project, which I use to do research on the codebase and it's evolution over time. Questions? contact me on Discord. `Mats - Mindgamesnl#6985`
+
+### (Small notes)
+ - This is the result of a sleepdeprived yet quirius allgnither and is still a work in progress, want to write more systems to automatically analyze data than just that one graph.
+ - Want to know more? I can't publish the dataset itself for ovbius reasons but feel free to make a Issue on github or message me on Discord if you have any ideas/suggestions.
