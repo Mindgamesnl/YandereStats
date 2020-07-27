@@ -4,16 +4,16 @@
 
 |              TASK              |  ELAPSED TIME   |
 |--------------------------------|-----------------|
-| Data Collection -              | 10.225282905s   |
-| Git+Changelog Merging          |                 |
-| Data Collection - MySQL Export | 54.762599929s   |
-| Data Collection - Combined     | 1m10.102736167s |
-| Total                          |                 |
-| Decompiled History - Opening   | 5.04272168s     |
-| Repo                           |                 |
-| Decompiled History - Fetching  | 12.3034ms       |
-| HEAD                           |                 |
-| Decompiled History - Combined  | 5.055027183s    |
-| Total                          |                 |
-| Data Collection - Changelog    | 54.021028ms     |
+| Data Collection - Changelog    | 78.799547ms     |
 | Download                       |                 |
+| Data Collection -              | 10.185781952s   |
+| Git+Changelog Merging          |                 |
+| Data Collection - MySQL Export | 55.783489549s   |
+| Data Collection - Combined     | 1m11.444968276s |
+| Total                          |                 |
+| Decompiled History - Opening   | 5.383406393s    |
+| Repo                           |                 |
+| Decompiled History - Fetching  | 13.171821ms     |
+| HEAD                           |                 |
+| Decompiled History - Combined  | 5.396580017s    |
+| Total                          |                 |
