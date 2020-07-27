@@ -39,7 +39,7 @@ func CountFileRevisions(cl changelog.ChangeLog)  {
 	table := tablewriter.NewWriter(tableString)
 	table.SetBorders(tablewriter.Border{Left: true, Top: false, Right: true, Bottom: false})
 	table.SetCenterSeparator("|")
-	table.SetHeader([]string{"File", "Revision", "First changed"})
+	table.SetHeader([]string{"File", "Revision", "First released"})
 	for _, v := range rows {
 		table.Append(v)
 	}

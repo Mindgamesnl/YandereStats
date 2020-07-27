@@ -12,4 +12,7 @@ var AnalyticalTasks = []func(changelog.ChangeLog){
 	// count how many times each file has been changed
 	CountFileRevisions,
 
+	// collect changelog details
+	CountChangeLogEntries,
+
 }

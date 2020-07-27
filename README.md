@@ -8,6 +8,7 @@ Main output gets rendered on [this page. Most data is in the database that gets 
 ## Collected data (so far, more on that later)
  - [Code changes per release](docs/index.html)
  - [File changes and introductions](docs/file_change_graph.md)
+ - [Changelog analysis](docs/changelog_keyword_assurances.md)
 
 ### (Small notes)
  - This is the result of a sleepdeprived yet curious allgnither and is still a work in progress, want to write more systems to automatically analyze data than just that one graph.
