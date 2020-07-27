@@ -15,4 +15,7 @@ var AnalyticalTasks = []func(changelog.ChangeLog){
 	// collect changelog details
 	CountChangeLogEntries,
 
+	// check how fucking obese his code is
+	CountFileSize,
+
 }
