@@ -10,6 +10,7 @@ require (
 	github.com/go-git/go-git v4.7.0+incompatible
 	github.com/go-yaml/yaml v2.1.0+incompatible // indirect
 	github.com/jinzhu/gorm v1.9.15
+	github.com/olekukonko/tablewriter v0.0.4
 	github.com/sirupsen/logrus v1.6.0
 	gopkg.in/src-d/go-git.v4 v4.13.1
 )
