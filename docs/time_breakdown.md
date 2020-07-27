@@ -4,17 +4,17 @@
 
 |              TASK              |   ELAPSED TIME   |
 |--------------------------------|------------------|
-| `Decompiled History - Combined | `3.764469651s`   |
-| Total`                         |                  |
-| `Data Collection - Changelog   | `45.739537ms`    |
-| Download`                      |                  |
-| `Data Collection -             | `9.821497365s`   |
-| Git+Changelog Merging`         |                  |
-| `Data Collection - MySQL       | `53.94579292s`   |
-| Export`                        |                  |
-| `Data Collection - Combined    | `1m7.577844207s` |
-| Total`                         |                  |
-| `Decompiled History - Opening  | `3.754326837s`   |
-| Repo`                          |                  |
-| `Decompiled History - Fetching | `10.141291ms`    |
+| `Decompiled History - Fetching | `14.704951ms`    |
 | HEAD`                          |                  |
+| `Decompiled History - Combined | `3.84232239s`    |
+| Total`                         |                  |
+| `Data Collection - Changelog   | `52.707495ms`    |
+| Download`                      |                  |
+| `Data Collection -             | `9.86768016s`    |
+| Git+Changelog Merging`         |                  |
+| `Data Collection - MySQL       | `54.515104297s`  |
+| Export`                        |                  |
+| `Data Collection - Combined    | `1m8.278143245s` |
+| Total`                         |                  |
+| `Decompiled History - Opening  | `3.827615094s`   |
+| Repo`                          |                  |
