@@ -2,7 +2,7 @@
 The pre-generated juicy bits so far
  - [Code changes per release](docs/index.html)
  - [File changes and introductions](docs/file_change_graph.md)
- - [Changelog analysis](docs/changelog_keyword_assurances.md)
+ - [Changelog analysis](docs/changelog_keyword_occurrences.md)
  - [File length breakdown](docs/file_length_breakdown.md)
  - [C# keywords/function analysis](docs/code_keyword_occurrences.md)
  
