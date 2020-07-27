@@ -14,7 +14,7 @@ func GenerateStopwatchBreakdown() {
 	for s := range utils.TimingLogs {
 		duration := utils.TimingLogs[s]
 
-		rows = append(rows, []string{"`" + s + "`" , "`" + duration.String() + "`"})
+		rows = append(rows, []string{s, "" + duration.String() + ""})
 	}
 
 	tableString := &strings.Builder{}
