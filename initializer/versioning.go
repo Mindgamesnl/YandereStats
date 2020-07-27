@@ -1,8 +1,8 @@
 package initializer
 
 import (
-	"github.com/Mindgamesnl/YandereFetch/changelog"
-	"github.com/Mindgamesnl/YandereFetch/git"
+	"github.com/Mindgamesnl/YandereStats/changelog"
+	"github.com/Mindgamesnl/YandereStats/git"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/sirupsen/logrus"
 	"log"

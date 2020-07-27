@@ -1,7 +1,7 @@
-package graphing
+package analytics
 
 import (
-	"github.com/Mindgamesnl/YandereFetch/changelog"
+	"github.com/Mindgamesnl/YandereStats/changelog"
 	"github.com/go-echarts/go-echarts/charts"
 	"github.com/sirupsen/logrus"
 	"log"
@@ -11,11 +11,9 @@ import (
 	"time"
 )
 
-const maxNum = 50
-
 var seed = rand.NewSource(time.Now().UnixNano())
 
-func GenerateGraph(cl changelog.ChangeLog) {
+func GenerateGraphTask(cl changelog.ChangeLog) {
 	logrus.Info("Making main graphs, fun!")
 
 
@@ -58,3 +56,4 @@ func GenerateGraph(cl changelog.ChangeLog) {
 func getRenderPath(f string) string {
 	return path.Join("docs", f)
 }
+

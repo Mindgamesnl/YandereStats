@@ -2,8 +2,8 @@ package initializer
 
 import (
 	"encoding/json"
-	"github.com/Mindgamesnl/YandereFetch/changelog"
-	git2 "github.com/Mindgamesnl/YandereFetch/git"
+	"github.com/Mindgamesnl/YandereStats/changelog"
+	git2 "github.com/Mindgamesnl/YandereStats/git"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/src-d/go-git.v4"

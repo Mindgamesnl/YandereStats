@@ -1,7 +1,7 @@
 package initializer
 
 import (
-	"github.com/Mindgamesnl/YandereFetch/config"
+	"github.com/Mindgamesnl/YandereStats/config"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"

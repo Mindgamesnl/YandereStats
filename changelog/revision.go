@@ -1,7 +1,7 @@
 package changelog
 
 import (
-	git2 "github.com/Mindgamesnl/YandereFetch/git"
+	git2 "github.com/Mindgamesnl/YandereStats/git"
 	"time"
 )
 

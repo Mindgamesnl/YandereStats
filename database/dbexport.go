@@ -1,8 +1,8 @@
 package database
 
 import (
-	"github.com/Mindgamesnl/YandereFetch/changelog"
-	"github.com/Mindgamesnl/YandereFetch/git"
+	"github.com/Mindgamesnl/YandereStats/changelog"
+	"github.com/Mindgamesnl/YandereStats/git"
 	"github.com/cheggaaa/pb/v3"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
