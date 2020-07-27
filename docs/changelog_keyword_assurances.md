@@ -1,3 +1,7 @@
+**This file tracks how many times certain words got mentioned in the game release changelog, and when they were first mentioned.**
+
+
+
 | CHANGELOG KEYWORD | OCCURRENCES | FIRST MENTIONED |
 |-------------------|-------------|-----------------|
 | added             |         481 | ys2014 .00.04   |

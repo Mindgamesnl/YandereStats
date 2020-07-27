@@ -45,7 +45,10 @@ func CountFileRevisions(cl changelog.ChangeLog)  {
 	}
 
 	table.Render()
-	_ = ioutil.WriteFile("docs/file_change_graph.md", []byte(tableString.String()), 0644)
+
+	content := "**This file tracks how many times certain files got changed in the game release changelog, and when they were first created/changed.**\n\n\n\n" + tableString.String()
+
+	_ = ioutil.WriteFile("docs/file_change_graph.md", []byte(content), 0644)
 }
 
 func rankByCount(fileFrequencies map[string]int) PairList{
